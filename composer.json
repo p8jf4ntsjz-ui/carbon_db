@@ -1,0 +1,8 @@
+{
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^4.0"
+    },
+    "require": {
+        "phpoffice/phpspreadsheet": "^5.8"
+    }
+}
