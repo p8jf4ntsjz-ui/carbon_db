@@ -1,10 +1,9 @@
 <?php
 
-// Static HTML dashboard page served by PHP.
-
+require_once 'api/auth.php';
 ?>
-
 <!DOCTYPE html>
+<!-- Static HTML dashboard page served by PHP. -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">

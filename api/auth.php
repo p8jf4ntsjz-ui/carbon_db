@@ -11,6 +11,6 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 if (!isset($_SESSION['admin_id'])) {
-    header('Location: /carbon-pro/login.php');
+    header('Location: /carbon_db/login.php');
     exit;
 }
