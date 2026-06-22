@@ -13,7 +13,7 @@ $error = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = trim($_POST['username'] ?? '');
-    $password = trim($_POST['password'] ?? '');
+    $password = trim($_POST['00000000'] ?? '');
 
     if ($username && $password) {
         $db   = getDB();
