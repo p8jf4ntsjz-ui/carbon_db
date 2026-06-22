@@ -16,7 +16,7 @@ def create_app(config_name='default'):
     app = Flask(__name__)
 
     # Config
-    from .config import config
+    from config import config
     app.config.from_object(config[config_name])
     config[config_name].init_app(app)
 
@@ -31,7 +31,7 @@ def create_app(config_name='default'):
     login_manager.login_message_category = 'info'
 
     # Blueprints
-    from .app.routes import main as main_blueprint
+    from routes import main as main_blueprint
     app.register_blueprint(main_blueprint)
 
     # Logging
