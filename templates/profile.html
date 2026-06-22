@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block title %}Mon profil — OptiCRM{% endblock %}
+{% block nav_profile %}active{% endblock %}
+{% block page_title %}Mon profil{% endblock %}
+
+{% block content %}
+<div class="page-header">
+  <div>
+    <h2>Mon profil</h2>
+    <p class="text-muted">Gérez vos informations personnelles.</p>
+  </div>
+</div>
+
+<div class="profile-grid">
+  <div class="card profile-card">
+    <div class="profile-avatar-lg">{{ session.name[0] }}</div>
+    <h3>{{ session.name }}</h3>
+    <span class="badge badge-role-{{ session.role }}">{{ session.role }}</span>
+    <p class="text-muted text-sm">Membre depuis {{ user.created_at }}</p>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><h3>Informations personnelles</h3></div>
+    <form method="POST" action="/profile/update" class="modal-form" novalidate>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="p_name">Nom complet</label>
+          <input type="text" id="p_name" name="name" value="{{ user.name }}" required>
+        </div>
+        <div class="form-group">
+          <label for="p_email">Email</label>
+          <input type="email" id="p_email" name="email" value="{{ user.email }}" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="p_phone">Téléphone</label>
+        <input type="tel" id="p_phone" name="phone" value="{{ user.phone }}">
+      </div>
+      <button type="submit" class="btn btn-primary">Enregistrer</button>
+    </form>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><h3>Changer le mot de passe</h3></div>
+    <form method="POST" action="/profile/password" class="modal-form" novalidate>
+      <div class="form-group">
+        <label for="current_pw">Mot de passe actuel</label>
+        <input type="password" id="current_pw" name="current_password" required>
+      </div>
+      <div class="form-group">
+        <label for="new_pw">Nouveau mot de passe</label>
+        <input type="password" id="new_pw" name="new_password" required minlength="8">
+      </div>
+      <div class="form-group">
+        <label for="confirm_pw">Confirmer</label>
+        <input type="password" id="confirm_pw" name="confirm_password" required minlength="8">
+      </div>
+      <button type="submit" class="btn btn-primary">Mettre à jour</button>
+    </form>
+  </div>
+</div>
+{% endblock %}
