@@ -2,7 +2,8 @@ import requests
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 from flask import current_app
-from models import EmissionFactor, db
+from app.models_root import EmissionFactor
+from app import db
 from datetime import datetime
 import logging
 

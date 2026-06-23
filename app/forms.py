@@ -5,7 +5,7 @@ from wtforms import (StringField, PasswordField, SelectField, FloatField,
                      MultipleFileField, SubmitField)
 from wtforms.validators import (DataRequired, Email, Length, EqualTo,
                                 NumberRange, Optional, ValidationError)
-from models import User
+from app.models.user import User
 
 
 class LoginForm(FlaskForm):

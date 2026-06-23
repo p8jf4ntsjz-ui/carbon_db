@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, session
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from flask_wtf.csrf import CSRFProtect
@@ -7,16 +7,19 @@ import logging
 from logging.handlers import RotatingFileHandler
 import os
 
+from requests import Session
+
 db = SQLAlchemy()
 login_manager = LoginManager()
 csrf = CSRFProtect()
 migrate = Migrate()
+sess = Session()
 
 def create_app(config_name='default'):
     app = Flask(__name__)
 
     # Config
-    from config import config
+    from app.config import config
     app.config.from_object(config[config_name])
     config[config_name].init_app(app)
 
@@ -31,7 +34,7 @@ def create_app(config_name='default'):
     login_manager.login_message_category = 'info'
 
     # Blueprints
-    from routes import main as main_blueprint
+    from app.routes import main as main_blueprint
     app.register_blueprint(main_blueprint)
 
     # Logging

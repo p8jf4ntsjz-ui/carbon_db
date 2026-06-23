@@ -1,5 +1,5 @@
 from datetime import datetime
-from __init__ import db
+from app import db
 
 
 class EmissionFactor(db.Model):

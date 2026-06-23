@@ -1,9 +1,9 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for, jsonify, current_app
 from flask_login import login_required, current_user
 from datetime import datetime
-from utils import sync_emission_factors, calculate_emission
-from models import EmissionFactor, EmissionEntry
-from __init__ import db
+from app.utils_root import sync_emission_factors, calculate_emission
+from app.models_root import EmissionFactor, EmissionEntry
+from app import db
 
 # Create blueprint
 main = Blueprint('main', __name__)
